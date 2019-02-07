@@ -26,12 +26,15 @@ public class SQLAutoDao implements AutoDao {
     private static final String ENGINE = "engine";
 
 
+
     private static final ConnectionPool pool = ConnectionPool.getInstance();
 
     private static final String SELECT_BY_AUTOID = "SELECT * FROM auto WHERE autoId = ?";
     private static final String SELECT_ALL__AUTOID = "SELECT * FROM auto";
     private static final String CREATE_CARE = "INSERT INTO auto (autoId, carBrend, carModel, engine, year, color, carStatus, priceDay)" +
             " VALUES ( ?, ?, ?, ?, ?, ?, ?, ?)";
+
+    private static final String LAST_INSERT_ID = "SELECT last_insert_id() as autoId";
 
 
     private SQLAutoDao() {
@@ -114,6 +117,35 @@ public class SQLAutoDao implements AutoDao {
     @Override
     public boolean checAuto(Auto status) throws DaoException {
         return false;
+    }
+
+    @Override
+    public int createAuto(Auto auto) throws DaoException {
+        try(Connection connect = pool.getConnection();
+            PreparedStatement statement = connect.prepareStatement(CREATE_CARE);
+            PreparedStatement statementThird = connect.prepareStatement(LAST_INSERT_ID)) {
+            connect.setAutoCommit(false);
+
+            statement.setString(1, String.valueOf(auto.getAutoId()));
+            statement.setString(2, auto.getCarBrend());
+            statement.setString(3, auto.getCarModel());
+            statement.setString(4, auto.getEngine());
+            statement.setString(5, auto.getYear());
+            statement.setString(6, auto.getColor());
+            statement.setString(7, auto.getCarStatus());
+            statement.setString(8, String.valueOf(auto.getPriceDay()));
+
+            statement.executeUpdate();
+            connect.commit();
+
+
+
+            ResultSet set = statementThird.executeQuery();
+            set.next();
+            return set.getInt(AUTO_ID);
+        } catch (SQLException | ConnectionPoolException e) {
+            throw new DaoException("Exception", e);
+        }
     }
 
 

@@ -20,4 +20,5 @@ public interface AutoDao extends GenericDAO <Auto, Long>{
       */
      boolean checAuto(Auto status) throws DaoException;
 
+    int createAuto(Auto auto) throws DaoException;
 }

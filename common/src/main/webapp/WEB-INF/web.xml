@@ -78,6 +78,15 @@
         <servlet-name>view_user</servlet-name>
         <url-pattern>/view_user</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>create_car</servlet-name>
+        <jsp-file>/WEB-INF/jsp/admin/createCar.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>create_car</servlet-name>
+        <url-pattern>/create_car</url-pattern>
+    </servlet-mapping>
 <!--
         <servlet>
             <servlet-name>ApplicationViewAdmin</servlet-name>

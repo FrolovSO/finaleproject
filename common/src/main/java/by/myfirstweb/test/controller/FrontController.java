@@ -36,16 +36,8 @@ public class FrontController extends HttpServlet {
         doRequest(request, response);
     }
 
-    /* It determines which team will be carried out and what actions will be implemented
-     * during the transition between pages in accordance with the request (forward or sendRedirect)
-     * @param request HttpServletRequest
-     * @param response HttpServletResponse
-     * @throws ServletException
-     * @throws IOException
-     */
     private void doRequest(HttpServletRequest request,
                            HttpServletResponse response) throws ServletException, IOException {
-
 
         String page;
 

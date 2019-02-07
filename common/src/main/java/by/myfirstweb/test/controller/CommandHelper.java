@@ -22,10 +22,11 @@ public class CommandHelper {
         commands.put(CommandName.TEST_COMMAND, TestCommand.getInstance());
         commands.put(CommandName.VIEW_USER, ViewUsersCommand.getInstance());
         commands.put(CommandName.ADD_CAR, AddCarCommand.getInstance());
+        commands.put(CommandName.ADD_CAR_PAGE, ViewCommand.getInstance());
     }
 
     private enum CommandName {
-        AUTORIZATION, REGISTRATION, TEST_COMMAND, VIEW_USER, ADD_CAR}
+        AUTORIZATION, REGISTRATION, TEST_COMMAND, VIEW_USER, ADD_CAR, ADD_CAR_PAGE}
 
     /**
      * Method determines by request of which command is needed and returns the command object

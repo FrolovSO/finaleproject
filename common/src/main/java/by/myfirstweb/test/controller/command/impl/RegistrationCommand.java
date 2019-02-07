@@ -10,9 +10,8 @@ import by.myfirstweb.test.service.validator.ValidationException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.util.Date;
 
-/* Class is designed for the registration of a new client*/
+
 public class RegistrationCommand implements CommandInterface {
     private static final UserService SERVICE = UserServiceImpl.getInstance();
 
@@ -26,13 +25,9 @@ public class RegistrationCommand implements CommandInterface {
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
     private static final String DRIVER_LICENSE = "driverLicense";
-    //private static final Date DATE_REGISTR = "dateRegistr";
     private static final String ACTION = "action";
     private static final String REDIRECT_ACTION_ATTRIBUTE = "redirect";
     private static final String FORWARD_ACTION_ATTRIBUTE = "forward";
-
-
-
 
     private static final String ERROR_FLAG = "errorFlag";
     private static final int ERROR_FLAG_VALUE = 1;
@@ -48,16 +43,6 @@ public class RegistrationCommand implements CommandInterface {
         private static final CommandInterface INSTANCE = new RegistrationCommand();
     }
 
-
-    /* Method performs the procedure for adding a new customer to the system.
-            * Getting all information about new client and then create new node in system.
-   * Also determines what action must be made for transition(forward or sendRedirect).
-            *
-            * @param request HttpServletRequest
-     * @param response HttpServletResponse
-     * @return the path to go to a specific page
-     * @throws CommandException when creating fail
-     */
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws CommandException {
 
@@ -66,11 +51,8 @@ public class RegistrationCommand implements CommandInterface {
             String mobilePhone = request.getParameter(MOBILE_PHONE);
             String name = request.getParameter(NAME_ATTRIBUTE);
             String surname = request.getParameter(SURNAME_ATTRIBUTE);
-            //Date dateRegistr = request.getParameter(DATE_REGISTR);
             String email = request.getParameter(EMAIL);
-            //String role = USER_ROLE;
             String driverLicense = request.getParameter(DRIVER_LICENSE);
-
             String login = request.getParameter(LOGIN);
             String password = request.getParameter(PASSWORD);
 
@@ -82,8 +64,7 @@ public class RegistrationCommand implements CommandInterface {
             user.setEmail(email);
             user.setMobilePhone(mobilePhone);
             user.setDriverLicense(driverLicense);
-            //user.setRole(role);
-            //user.setDateRegistr(dateRegistr);
+
 
 
             User resultClient = SERVICE.create(user);

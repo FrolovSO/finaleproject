@@ -40,6 +40,16 @@
         </button>
     </p>
     </a>
+    <div>
+
+        <a href="FrontController?command=ADD_CAR_PAGE">
+            <p style="text-align: center">
+                <button>
+                    Add Car
+                </button>
+            </p>
+        </a>
+    </div>
         <a href="FrontController?command=VIEW_USER">
             <p style="text-align: center">
                 <button>
@@ -99,13 +109,13 @@
                 <td>
                     <p>${auto.priceDay}</p>
                 </td>
-                <td>
-                    <form action="/rentcar">
-                            <%--<input type="hidden" name="autoId" value="${auto.autoId}">--%>
-                            <%--<input type="hidden" name="command" value="role">--%>
-                        <input class="btn btn-danger" type="submit" value="Order Car">
-                    </form>
-                </td>
+                <%--<td>--%>
+                    <%--<form action="/rentcar">--%>
+                            <%--&lt;%&ndash;<input type="hidden" name="autoId" value="${auto.autoId}">&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;<input type="hidden" name="command" value="role">&ndash;%&gt;--%>
+                        <%--<input class="btn btn-danger" type="submit" value="Order Car">--%>
+                    <%--</form>--%>
+                <%--</td>--%>
             </tr>
             </c:forEach>
         </table>

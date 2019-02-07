@@ -42,10 +42,6 @@ public class UserServiceImpl implements UserService {
         return obj;
     }
 
-//    @Override
-//    public List<User> loadAll() throws ServiceException {
-//        return null;
-//    }
     @Override
     public List<User> loadAll() {
         UserDAO userDao = factory.getUserDao();
