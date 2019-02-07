@@ -12,7 +12,6 @@ public class AddCarCommand implements CommandInterface {
 
     public static CommandInterface getInstance() {
         return SingletonHolder.INSTANCE;
-
     }
 
     private static class SingletonHolder {
