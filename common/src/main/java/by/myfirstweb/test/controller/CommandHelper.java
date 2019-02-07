@@ -1,9 +1,8 @@
 package by.myfirstweb.test.controller;
 
 import by.myfirstweb.test.controller.command.CommandInterface;
-import by.myfirstweb.test.controller.command.impl.LoginCommand;
-import by.myfirstweb.test.controller.command.impl.RegistrationCommand;
-import by.myfirstweb.test.controller.command.impl.TestCommand;
+import by.myfirstweb.test.controller.command.impl.*;
+
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -21,10 +20,12 @@ public class CommandHelper {
         commands.put(CommandName.REGISTRATION, RegistrationCommand.getInstance());
 
         commands.put(CommandName.TEST_COMMAND, TestCommand.getInstance());
+        commands.put(CommandName.VIEW_USER, ViewUsersCommand.getInstance());
+        commands.put(CommandName.ADD_CAR, AddCarCommand.getInstance());
     }
 
     private enum CommandName {
-        AUTORIZATION, REGISTRATION, TEST_COMMAND}
+        AUTORIZATION, REGISTRATION, TEST_COMMAND, VIEW_USER, ADD_CAR}
 
     /**
      * Method determines by request of which command is needed and returns the command object
@@ -34,6 +35,7 @@ public class CommandHelper {
      */
     public CommandInterface getCommand(HttpServletRequest request) {
         String commandName = request.getParameter(ATTRIBUTE_COMMAND);
+        System.out.println(commandName);
         if(commandName != null) {
             CommandName name = CommandName.valueOf(commandName.toUpperCase().replace(DASH, UNDERSCORE));
             return commands.get(name);

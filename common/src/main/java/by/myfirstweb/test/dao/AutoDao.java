@@ -20,13 +20,4 @@ public interface AutoDao extends GenericDAO <Auto, Long>{
       */
      boolean checAuto(Auto status) throws DaoException;
 
-     /**
-      * Method find all nodes fro database which satisfy the conditions of application
-      *
-      * @param app facility which searches
-      * @return list nodes that can be find in database
-      * @throws DaoException
-      */
-     List<Auto> findByAutoReq(AutoReq app) throws DaoException;
-
 }

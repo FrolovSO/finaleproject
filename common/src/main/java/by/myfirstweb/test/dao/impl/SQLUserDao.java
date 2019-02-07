@@ -18,9 +18,13 @@ public class SQLUserDao implements UserDAO {
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
     private static final String ROLE = "roleId";
-    private static final String DRIVERSLICENCE = "driversLicense";
+    private static final String DRIVERSLICENCE = "driverLicense";
     private static final String USER_ID = "userId";
     private static final String EXPERIENCE = "experience";
+    private static final String SURNAME = "surname";
+    private static final String USERNAME = "userName";
+    private static final String PHONE = "mobilePhone";
+    private static final String EMAIL = "email";
 
 
     private static final ConnectionPool pool = ConnectionPool.getInstance();
@@ -106,6 +110,14 @@ public class SQLUserDao implements UserDAO {
                 User user = new User();
                 user.setLogin(set.getString(LOGIN));
                 user.setPassword(set.getString(PASSWORD));
+                //
+                user.setUserId(set.getLong(USER_ID));
+                user.setDriverLicense(set.getString(DRIVERSLICENCE));
+                user.setUserName(set.getString(USERNAME));
+                user.setSurname(set.getString(SURNAME));
+                user.setMobilePhone(set.getString(PHONE));
+                user.setEmail(set.getString(EMAIL));
+
                 //user.setRole(set.getString(ROLE));
                 userList.add(user);
             }

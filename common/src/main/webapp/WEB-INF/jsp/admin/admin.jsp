@@ -14,84 +14,102 @@
 <body>
 <div align="center">
     Rent a car
-</div>>
+</div>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div align="left">
+    <form action="/rentcar">
+        <input class="btn btn-danger" type="submit" value="Log Out">
+    </form>
+</div>
 <div align="center">
-<title>Auto park</title>
+    <title>Auto park</title>
 
-<%--<a href="FrontController?command=test_command">View Cars </a>--%>
-<%--<table>--%>
+    <%--<a href="FrontController?command=test_command">View Cars </a>--%>
+    <%--<table>--%>
     <%--<%=request.getAttribute("testList")%>--%>
-<%--</table>--%>
-<%--</div>>--%>
+    <%--</table>--%>
+    <%--</div>>--%>
 
-/////////////////////////////////////////////////////
-<body>
-<a href="FrontController?command=TEST_COMMAND">
-    <p style="text-align: center">
+    /////////////////////////////////////////////////////
+    <body>
+    <a href="FrontController?command=TEST_COMMAND">
+          <p style="text-align: center">
         <button>
             View Cars
         </button>
     </p>
-</a>
-<table border="1" width="30%" cellpadding="10" align="center">
-    <tr>
-        <td>
-            <p>Registration namber</p>
-        </td>
-        <td>
-            <p>Brend</p>
-        </td>
-        <td>
-            <p>Model</p>
-        </td>
-        <td>
-            <p>Engine</p>
-        </td>
-        <td>
-            <p>Year</p>
-        </td>
-        <td>
-            <p>Color</p>
-        </td>
-        <td>
-            <p>Price</p>
-        </td>
-        <c:forEach items="${testList}" var="auto">
-    <tr>
-        <td>
-            <p>${auto.autoId}</p>
-        </td>
-        <td>
-            <p>${auto.carBrend}</p>
-        </td>
-        <td>
-            <p>${auto.carModel}</p>
-        </td>
-        <td>
-            <p>${auto.engine}</p>
-        </td>
-        <td>
-            <p>${auto.year}</p>
-        </td>
-        <td>
-            <p>${auto.color}</p>
-        </td>
-        <td>
-            <p>${auto.priceDay}</p>
-        </td>
-        <td>
-            <form action="/rentcar" >
-                <%--<input type="hidden" name="autoId" value="${auto.autoId}">--%>
-                <%--<input type="hidden" name="command" value="role">--%>
-                <input class="btn btn-danger" type="submit" value="Order Car">
-            </form>
-        </td>
-    </tr>
-    </c:forEach>
-</table>
-</body>
+    </a>
+        <a href="FrontController?command=VIEW_USER">
+            <p style="text-align: center">
+                <button>
+                    View User
+                </button>
+            </p>
+        </a>
+        <table border="1" width="30%" cellpadding="10" align="center">
+            <tr>
+                <td>
+                    <p>Registration namber</p>
+                </td>
+                <td>
+                    <p>Status</p>
+                </td>
+                <td>
+                    <p>Brend</p>
+                </td>
+                <td>
+                    <p>Model</p>
+                </td>
+                <td>
+                    <p>Engine</p>
+                </td>
+                <td>
+                    <p>Year</p>
+                </td>
+                <td>
+                    <p>Color</p>
+                </td>
+                <td>
+                    <p>Price</p>
+                </td>
+                <c:forEach items="${autoList}" var="auto">
+            <tr>
+                <td>
+                    <p>${auto.autoId}</p>
+                </td>
+                <td>
+                    <p>${auto.carStatus}</p>
+                </td>
+                <td>
+                    <p>${auto.carBrend}</p>
+                </td>
+                <td>
+                    <p>${auto.carModel}</p>
+                </td>
+                <td>
+                    <p>${auto.engine}</p>
+                </td>
+                <td>
+                    <p>${auto.year}</p>
+                </td>
+                <td>
+                    <p>${auto.color}</p>
+                </td>
+                <td>
+                    <p>${auto.priceDay}</p>
+                </td>
+                <td>
+                    <form action="/rentcar">
+                            <%--<input type="hidden" name="autoId" value="${auto.autoId}">--%>
+                            <%--<input type="hidden" name="command" value="role">--%>
+                        <input class="btn btn-danger" type="submit" value="Order Car">
+                    </form>
+                </td>
+            </tr>
+            </c:forEach>
+        </table>
+    </body>
 
 </body>
 
